@@ -19,3 +19,4 @@ rebar3.crashdump
 *~
 .project
 .settings/
+rebar.lock
