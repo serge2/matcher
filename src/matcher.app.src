@@ -1,0 +1,13 @@
+{application, matcher,
+ [{description, "An OTP application"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {applications,
+   [kernel,
+    stdlib,
+    iso8601,
+    decimal
+   ]},
+  {env,[]},
+  {modules, []}
+ ]}.
