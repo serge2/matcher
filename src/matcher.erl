@@ -730,7 +730,7 @@ validate_by_option(OptionName, Descriptor, Path, OptionPrepareFun, OptionError, 
           ValidationError :: any() .
 validate_by_option(OptionName, Default, Descriptor, Path, OptionPrepareFun, OptionError, ValidationFun, ValidationError) ->
     Option = maps:get(OptionName, Descriptor, Default),
-    PreparedOption = try OptionPrepareFun(Option) catch _C:_E:_ST -> throw_error(bad_descriptor, Path, OptionError) end,
+    PreparedOption = try OptionPrepareFun(Option) catch _C:_E -> throw_error(bad_descriptor, Path, OptionError) end,
     try ValidationFun(PreparedOption)
     catch
         throw:Error -> throw(Error);
