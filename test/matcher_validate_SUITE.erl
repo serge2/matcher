@@ -648,10 +648,10 @@ test_utf8_binary_country_alpha3_positive(_Config) ->
 test_utf8_binary_country_alpha3_negative(_Config) ->
     ?assertMatch({error, {not_valid, [], incorrect_format}},
                  matcher:validate(<<>>, #{type => utf8_binary, format => country_alpha3})),
-    % Exactly two symbole expected
+    % Exactly three symbole expected
     ?assertMatch({error, {not_valid, [], incorrect_format}},
                  matcher:validate(<<"UANK">>, #{type => utf8_binary, format => country_alpha3})),
-    % Exactly two symbole expected
+    % Exactly three symbole expected
     ?assertMatch({error, {not_valid, [], incorrect_format}},
                  matcher:validate(<<"UA">>, #{type => utf8_binary, format => country_alpha3})),
     % Must be uppercase
@@ -1186,9 +1186,9 @@ test_term_negative(_Config) ->
     ?assertMatch({error, {not_valid, [], not_match}},
                  matcher:validate(12345.0, #{type => term, validator => fun erlang:is_integer/1})),
     ?assertMatch({error, {not_valid, [], not_match}},
-                 matcher:validate(<<"2020:12:31">>, #{type => term, validator => fun marcher_lib:is_date/1})),
+                 matcher:validate(<<"2020:12:31">>, #{type => term, validator => fun matcher_lib:is_date/1})),
     ?assertMatch({error, {not_valid, [], not_match}},
-                 matcher:validate(1999, #{type => term, validator => fun marcher_lib:is_date/1})),
+                 matcher:validate(1999, #{type => term, validator => fun matcher_lib:is_date/1})),
     ok.
 
 test_term_bad_descriptor(_Config) ->
